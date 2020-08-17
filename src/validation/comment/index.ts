@@ -1,0 +1,1 @@
+export { addCommentValidation } from './addComment';

@@ -1,0 +1,423 @@
+:root{
+  --primary: rgb(70, 70, 224);
+  --secondary: rgb(253, 207, 4);
+  --danger: rgb(226, 69, 69)
+}
+
+:focus{
+  outline: none !important;
+}
+
+
+body{
+  line-height: 1;
+}
+
+
+.my-nav{
+  background-color: var(--primary); 
+}
+
+.my-brand{
+  font-size: 24px;
+  letter-spacing: 5px; 
+}
+
+.my-brand,
+.my-brand:hover{
+  color:var(--secondary);
+  text-transform: uppercase;
+}
+
+.my-item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.my-item:not(:last-of-type){
+  margin-right: 10px;
+}
+
+.my-link{ 
+  color:#fff;
+  width:max-content;
+}
+
+.my-link:hover,
+.my-active > .my-link{
+  color:var(--secondary); 
+}
+
+.my-toggle {
+  position: relative;
+  width:45px;
+  height:45px;
+  padding: 0 !important;
+}
+
+.my-toggle > span::before,
+.my-toggle > span::after{
+  content: "";
+  position: absolute;
+}
+
+.my-toggle > span,
+.my-toggle > span::before,
+.my-toggle > span::after{
+  display: block;
+  width:40px;
+  height: 2.5px;
+  background-color: var(--secondary);
+}
+
+.my-toggle > span::before{
+  top:-10px;
+}
+.my-toggle > span::after{
+  top:10px;
+}
+
+.my-toggle > span{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.my-outline-btn{
+  border-color: var(--primary);
+  color:var(--primary);
+  box-shadow: none !important;
+}
+
+.my-secondary-contain-btn,
+.my-secondary-contain-btn:hover,
+.my-secondary-contain-btn:active,
+.my-secondary-contain-btn:focus{
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color:#333 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.my-primary-contain-btn,
+.my-primary-contain-btn:hover,
+.my-primary-contain-btn:active,
+.my-primary-contain-btn:focus{
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color:#fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
+.my-outline-btn:hover{
+  background-color: var(--primary);
+  color:#fff;
+}
+
+.my-form-control{
+  background-image: none !important;
+}
+
+.my-form-control:focus{
+  border-color: var(--primary);
+  box-shadow: none !important; 
+}
+
+.my-form{
+  max-width:400px;
+  margin:0 auto;
+}
+
+.my-form-group{
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-alert{
+  text-align: center;
+}
+
+.my-logout{
+  background-color: transparent;
+  border:none;
+  padding: .5rem 0;
+}
+
+.my-logout-item{
+  display: flex;
+  align-items: center;
+  
+}
+
+.my-add-post-form{
+  max-width:500px;
+  margin: 0 auto;
+}
+
+
+.my-file{
+  display: none;
+}
+
+.my-file-label{
+  height:50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 5px;
+  box-sizing: content-box;
+  margin-bottom: 0;
+  border-radius: 3px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  transition: all .1s;
+}
+
+.my-file-label:hover{
+  background-color: var(--primary);
+  color:#fff;
+}
+
+.my-file-label > * {
+  display: block;
+}
+
+.my-file-label > svg{
+  width:40px;
+  height:40px;
+  fill:currentColor;
+}
+
+.my-card{
+  width: 300px;
+}
+
+.my-file-label.active{
+  border-color: rgb(81, 211, 81) !important;
+  background-color: rgb(81, 211, 81) !important;
+  color:#fff !important;
+}
+
+#file-form-group{
+  display: flex;
+  height: 60px;
+  
+  align-items: center;
+  justify-content: space-between;
+}
+
+#file-form-group > img{
+  display: block;
+  max-width:200px;
+  height: 80%;
+  background-size: cover;
+}
+
+.is-invalid,
+.is-invalid:hover{
+  border-color:var(--danger) !important;
+  color:var(--danger) !important;
+  background-color: transparent;
+}
+
+
+.my-img-container{
+  padding: 10px 5px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+
+
+.my-detail-card{
+  width:90%;
+  margin: 0 auto;
+  padding: 20px 5px;
+}
+
+.my-detail-card-img-container{
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.my-detail-card-img-container > img{
+  
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  
+}
+
+.my-cad-detail-title{
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.my-detail-hr{
+  width:97%;
+  display: block;
+  margin: 0 auto !important;
+}
+
+.my-comment-form,
+.my-comments{
+  width:91%;
+  margin: 0 auto;
+  padding: 20px 5px;
+}
+
+.my-comment-textarea{
+  resize: none;
+}
+
+.my-avatar-item{
+  width:35px;
+  height:35px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+
+.avatar-link{
+  display: flex;
+  width:100%;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-link,
+.avatar-link:hover{
+
+  color:#333;
+  text-decoration: none;
+}
+
+.account-avatar{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+  background-color: #eee;
+  position: relative;
+  cursor: pointer;
+  border:1px solid transparent;
+}
+
+.my-avatar-item.active,
+.account-avatar.active{
+  background-color: #fff !important;
+  border-color: #fff ;
+}
+
+.account-avatar.is-invalid{
+  color:#333 !important; 
+  border-color: var(--danger);
+  background-color: #eee;
+}
+
+.account-avatar > #defImage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width:100%;
+  position: absolute;
+  top:80%;
+  background-color: rgba(0,0,0,0.5);
+  left:50%;
+  transform: translate(-50%,100%);
+  transition: transform .2s;
+}
+
+.account-avatar:hover > #defImage{
+  transform: translate(-50%,-40%);
+}
+
+.account-avatar > #defImage > svg{
+  height: 75%;
+  fill:#eee;
+  width: 100%;
+}
+
+#avatar{
+  display: none;
+}
+
+#avatar-image{
+  display: inline-block;
+  height: 100%;
+}
+
+
+
+.avatar-link > img,
+#avatar-image > img,
+#imageId{
+  display: inline-block;
+  width:100%;
+  height: 100%;
+}
+
+#avatar-image > img,
+#imageId{
+  object-fit: contain;
+}
+
+.avatar-link > img{
+  object-fit: contain;
+}
+
+.upload-btn-container{
+  text-align: center;
+}
+
+.my-account-avatar-container > div{
+  width:150px;
+}
+
+.my-comment{
+  
+}
+
+@media only screen and (max-width: 600px){
+  .my-card{
+    max-width: 80%;
+    width:100%;
+  }
+}
+
+@media only screen and (max-width:768px){
+  .my-account-avatar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

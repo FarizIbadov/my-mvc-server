@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg my-nav">
+    <a class="navbar-brand my-brand" href="/">Poster</a>
+    <button class="navbar-toggler my-toggle" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item my-item  <%=  path === '/' ? 'my-active' : ""  %>">
+                <a class="nav-link my-link" href="/">Home</a>
+            </li>
+            <li class="nav-item my-item  <%=  path === '/posts' ? 'my-active' : ""  %>">
+                <a class="nav-link my-link" href="/posts">Posts</a>
+            </li>
+            <% if(!isAuthenticated) { %>
+            <li class="nav-item my-item  <%=  path === '/account/login' ? 'my-active' : ""  %>">
+                <a class="nav-link my-link" href="/account/login">Sign In</a>
+            </li>
+            <li class="nav-item my-item  <%=  path === '/account/register' ? 'my-active' : ""  %>">
+                <a class="nav-link my-link" href="/account/register">Sign Up</a>
+            </li>
+            <% } else { %>
+            <li class="nav-item my-item my-logout-item">
+                <form action="/account/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="my-logout my-link" type="submit">Logout</button>
+                </form>
+            </li>
+            <li class="nav-item my-item my-avatar-item <%= user.avatar ? 'active' : "" %>">
+                <a class="avatar-link" href="/account">
+                    <%- include('../partials/avatar.ejs',{user:user}) %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

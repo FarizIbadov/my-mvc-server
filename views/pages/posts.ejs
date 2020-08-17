@@ -1,0 +1,56 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/navigation.ejs') %>
+<% if(myPost) { %>
+<%- include('../partials/modal.ejs') %>
+<% } %>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4 mb-5">Posts</h1>
+        <% if(isAuthenticated) {%>
+        <div class="row">
+            <a href="/posts/add-post" class="btn my-outline-btn ml-3">Add Post</a>
+            <% if(!myPost) { %>
+            <a href="/posts/my-posts" class="btn my-primary-contain-btn ml-2">My Posts</a>
+            <% } else { %>
+            <a href="/posts" class="btn my-primary-contain-btn ml-2">All Posts</a>
+            <% } %>
+        </div>
+        <hr class="my-4">
+        <% } %>
+    </div>
+</div>
+<div class="container-fluid mt-5">
+
+
+    <div class="row justify-content-center flex-wrap">
+
+        <% if(posts.toString()) { %>
+        <% for(const post of posts) {%>
+        <div class="card my-card m-3">
+            <div class="my-img-container">
+                <img src="<%= post.imageUrl %>" class="card-img-top my-img" alt="<%= post.title %>">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                <p class="card-text"><%= post.description.substring(0, 50) %>...</p>
+
+                <% if(myPost) { %>
+                <a href="/posts/edit-post/<%= post._id %>" class="btn my-outline-btn">Edit</a>
+                <button type="button" class="btn my-primary-contain-btn modalBtn" data-toggle="modal"
+                    data-id="<%= post._id %>" data-target="#DeleteConfirmation">
+                    Delete
+                </button>
+                <% } else { %>
+                <a href="/posts/<%= post._id %>" class="btn my-outline-btn">Detail</a>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+        <% } else { %>
+
+        <h1>No Posts</h1>
+
+        <% } %>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

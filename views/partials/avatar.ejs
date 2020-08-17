@@ -1,0 +1,5 @@
+<% if(user.avatar) { %>
+<img src="<%= user.avatar %>" alt="<%= user.username[0] %>">
+<% } else { %>
+<%= user.username[0] %>
+<% } %>

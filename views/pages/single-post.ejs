@@ -1,0 +1,63 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/navigation.ejs') %>
+<% if (myPost) { %>
+<%- include('../partials/modal.ejs') %>
+<% } %>
+<div class="container">
+    <div class="row">
+        <div class="card mt-5 my-detail-card">
+            <div class="my-detail-card-img-container">
+                <img src="<%= post.imageUrl %>" class="card-img-top" alt="<%= post.title %>">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title my-cad-detail-title"><%= post.title %></h5>
+                <p class="card-text"><%= post.description %></p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+            <% if (myPost) { %>
+            <hr class="my-4 my-detail-hr">
+            <div class="ml-3 mt-3">
+                <a href="/posts/edit-post/<%= post._id %>" class="btn my-outline-btn">Edit</a>
+                <button type="button" class="btn my-primary-contain-btn modalBtn" data-toggle="modal"
+                    data-id="<%= post._id %>" data-target="#DeleteConfirmation">
+                    Delete
+                </button>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <% if(isAuthenticated) { %>
+    <div class="row">
+        <form action="/posts/post-comment" method="POST" class="my-comment-form">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="postId" value="<%= post._id %>">
+            <div class="form-group">
+                <label for="comment">Comment to <span id="toPostComment">Post</span></label>
+                <textarea class="form-control my-form-control my-comment-textarea <%= isInvalid.comment  %>"
+                    id="comment" name="comment" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn my-outline-btn">Comment</button>
+            </div>
+        </form>
+    </div>
+    <% } else { %>
+
+    <% } %>
+
+    <div class="my-comments">
+        <% if(comments.toString()) { %>
+        <% for (const comment of comments) {%>
+        <div class="row my-comment">
+            <%= comment.commentedBy.username %>
+            <img src="<%= comment.commentedBy.avatar %>" alt="fariz">
+            <%= comment.content %>
+        </div>
+        <% } %>
+        <% } else { %>
+        <h2>No Comments</h2>
+        <% } %>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>
